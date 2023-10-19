@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests.helpers
+package edu.illinois.cs.cs124.ay2023.mp.test.helpers
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.DeserializationFeature
@@ -77,4 +77,4 @@ fun compareCourses(expectedString: String?, foundString: String?) {
     }
 }
 
-// md5: 3f13b0d13ea63393c2673eaeb2726836 // DO NOT REMOVE THIS LINE
+// md5: 93a9ada42e325c9db6138784b197f2b5 // DO NOT REMOVE THIS LINE

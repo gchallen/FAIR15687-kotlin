@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests.helpers
+package edu.illinois.cs.cs124.ay2023.mp.test.helpers
 
 import android.content.res.Resources
 import android.view.View
@@ -46,4 +46,4 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
 
 fun withRecyclerView(recyclerViewId: Int) = RecyclerViewMatcher(recyclerViewId)
 
-// md5: 63969ee45961470a139ff2e5cf93db40 // DO NOT REMOVE THIS LINE
+// md5: 2820cb12ce579f38c0c691e304e8ce94 // DO NOT REMOVE THIS LINE

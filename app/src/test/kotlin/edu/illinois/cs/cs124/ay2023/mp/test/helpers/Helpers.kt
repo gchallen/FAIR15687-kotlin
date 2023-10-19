@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests.helpers
+package edu.illinois.cs.cs124.ay2023.mp.test.helpers
 
 import android.app.Activity
 import android.content.Intent
@@ -84,4 +84,4 @@ class FilteringPrintStream : PrintStream(nullOutputStream()) {
     }
 }
 
-// md5: dcc18e311671bad1eb106d863f936664 // DO NOT REMOVE THIS LINE
+// md5: 6a76da7e0e0e9d826ee190ec2a7ef3aa // DO NOT REMOVE THIS LINE

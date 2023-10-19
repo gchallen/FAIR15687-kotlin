@@ -13,7 +13,7 @@
           <option value=":app:cleanTestDebugUnitTest" />
           <option value=":app:testDebugUnitTest" />
           <option value="--tests" />
-          <option value="&quot;edu.illinois.cs.cs124.ay2023.mp.tests.MP0Test&quot;" />
+          <option value="&quot;edu.illinois.cs.cs124.ay2023.mp.test.MP0Test&quot;" />
         </list>
       </option>
       <option name="vmOptions" value="" />

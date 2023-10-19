@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests.helpers
+package edu.illinois.cs.cs124.ay2023.mp.test.helpers
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.google.common.truth.Truth.assertWithMessage
@@ -141,4 +141,4 @@ fun <T> testClient(method: (callback: (result: ResultMightThrow<T>) -> Any?) -> 
     return result.value!!
 }
 
-// md5: 43ad0847150276b7d39b18b111088fa9 // DO NOT REMOVE THIS LINE
+// md5: 1e0bd9685580919882275bc88deb3199 // DO NOT REMOVE THIS LINE

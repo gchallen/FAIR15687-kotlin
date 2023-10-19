@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests.helpers
+package edu.illinois.cs.cs124.ay2023.mp.test.helpers
 
 import android.view.View
 import android.widget.RatingBar
@@ -80,4 +80,4 @@ fun setRating(rating: Int): ViewAction {
     )
 }
 
-// md5: 90cc5bff5133ca4327dd686928df92f0 // DO NOT REMOVE THIS LINE
+// md5: 475694d662a3e0893498135fa7fcd66e // DO NOT REMOVE THIS LINE

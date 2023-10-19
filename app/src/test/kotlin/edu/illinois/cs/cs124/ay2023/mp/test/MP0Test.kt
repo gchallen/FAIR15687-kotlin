@@ -1,4 +1,4 @@
-package edu.illinois.cs.cs124.ay2023.mp.tests
+package edu.illinois.cs.cs124.ay2023.mp.test
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -9,12 +9,12 @@ import edu.illinois.cs.cs124.ay2023.mp.R
 import edu.illinois.cs.cs124.ay2023.mp.models.Summary
 import edu.illinois.cs.cs124.ay2023.mp.network.Client
 import edu.illinois.cs.cs124.ay2023.mp.network.startServer
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.SUMMARY_COUNT
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.configureLogging
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.countRecyclerView
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.startMainActivity
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.testClient
-import edu.illinois.cs.cs124.ay2023.mp.tests.helpers.testServerGet
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.SUMMARY_COUNT
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.configureLogging
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.countRecyclerView
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.startMainActivity
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.testClient
+import edu.illinois.cs.cs124.ay2023.mp.test.helpers.testServerGet
 import edu.illinois.cs.cs125.gradlegrader.annotations.Graded
 import org.junit.FixMethodOrder
 import org.junit.Test
@@ -123,4 +123,4 @@ class MP0Test {
     }
 }
 
-// md5: 5b1ca405cbe2953a568adbd52c5d2e49 // DO NOT REMOVE THIS LINE
+// md5: c25445c9feb472fe52d190c7ef64897e // DO NOT REMOVE THIS LINE
