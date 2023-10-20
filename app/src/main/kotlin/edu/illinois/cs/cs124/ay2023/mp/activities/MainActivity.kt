@@ -19,7 +19,7 @@ class MainActivity :
 
     /** Tag to identify the MainActivity in the logs. */
     @Suppress("unused")
-    private val logTag = MainActivity::class.java.name
+    private val logTag = MainActivity::class.java.simpleName
 
     /** List of summaries received from the server, initially empty. */
     private var summaries = listOf<Summary>()

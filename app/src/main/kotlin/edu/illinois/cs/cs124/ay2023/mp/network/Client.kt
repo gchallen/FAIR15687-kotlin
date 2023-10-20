@@ -37,7 +37,7 @@ import java.util.stream.Collectors
  */
 object Client {
     /** Tag to identify the Client in the logs. */
-    private val logTag = Client::class.java.name
+    private val logTag = Client::class.java.simpleName
 
     /**
      * Retrieve the list of summaries.
