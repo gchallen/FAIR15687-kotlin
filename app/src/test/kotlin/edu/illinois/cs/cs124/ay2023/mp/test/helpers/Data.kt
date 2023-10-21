@@ -29,7 +29,7 @@ private const val COURSES_FINGERPRINT = "25d6470e35976403cb1f37163a3f948a"
 
 // Load courses.json into a String and check the fingerprint to make sure it hasn't been modified
 private var coursesJSON = object {}.javaClass.getResource("/courses.json")!!.readText().also { contents ->
-    val cleanContents = contents.lines().map { it.trimEnd() }.joinToString("\n")
+    val cleanContents = contents.lines().joinToString("\n") { it.trimEnd() }
     val currentFingerprint = BigInteger(1, MessageDigest.getInstance("MD5").digest(cleanContents.toByteArray()))
         .toString(16)
         .padStart(32, '0')
@@ -78,4 +78,4 @@ fun compareCourses(expectedString: String?, foundString: String?) {
     }
 }
 
-// md5: 870f990754e7d8cb2b8ee1ad63426245 // DO NOT REMOVE THIS LINE
+// md5: 88ea1b8aab822055a4894552795c6840 // DO NOT REMOVE THIS LINE
