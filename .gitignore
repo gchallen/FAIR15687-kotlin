@@ -9,11 +9,11 @@
 /.idea/assetWizardSettings.xml
 /.idea/misc.xml
 /.idea/checkstyle-idea.xml
+/.idea/deploymentTargetDropDown.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
-/email.txt
 /.score.json
 /grade.json
