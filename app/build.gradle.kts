@@ -12,7 +12,7 @@ import java.util.UUID
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.github.cs124-illinois.gradlegrader") version "2023.10.7"
+    id("com.github.cs124-illinois.gradlegrader") version "2023.10.8"
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
 }
 android {
@@ -58,7 +58,7 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
 
-    testImplementation("com.github.cs124-illinois:gradlegrader:2023.10.7")
+    testImplementation("com.github.cs124-illinois:gradlegrader:2023.10.8")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.11-beta-2")
     testImplementation("androidx.test:core:1.5.0")
@@ -110,12 +110,11 @@ gradlegrader {
         @Suppress("SwallowedException")
         validate =
             Spec {
-                try {
-                    UUID.fromString(it.trim())
-                    true
-                } catch (e: java.lang.IllegalArgumentException) {
-                    false
+                val uuid = it.trim()
+                check(uuid.length == 36 && UUID.fromString(uuid).toString() == uuid) {
+                    "Invalid UUID string: $uuid"
                 }
+                true
             }
     }
     reporting {
