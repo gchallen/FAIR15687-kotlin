@@ -16,6 +16,9 @@ import java.io.PrintStream
  * You should not need to modify it.
  */
 
+// Extra time allowed by GET /course/ and /rating/ compared to baseline
+internal const val GET_METHOD_EXTRA_TIME = 1.3
+
 // Helper method to start the MainActivity
 fun startMainActivity(action: ActivityScenario.ActivityAction<MainActivity>) {
     ActivityScenario.launch(MainActivity::class.java).use { scenario ->
@@ -84,4 +87,4 @@ class FilteringPrintStream : PrintStream(nullOutputStream()) {
     }
 }
 
-// md5: 6a76da7e0e0e9d826ee190ec2a7ef3aa // DO NOT REMOVE THIS LINE
+// md5: cc1a691c8352912884bcb24ba227c098 // DO NOT REMOVE THIS LINE

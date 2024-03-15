@@ -12,8 +12,8 @@ import java.util.UUID
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.github.cs124-illinois.gradlegrader") version "2023.10.8"
-    id("io.gitlab.arturbosch.detekt") version "1.23.1"
+    id("org.cs124.gradlegrader") version "2024.3.0"
+    id("io.gitlab.arturbosch.detekt") version "1.23.5"
 }
 android {
     namespace = "edu.illinois.cs.cs124.ay2023.mp"
@@ -56,11 +56,11 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:mockwebserver:4.12.0")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
 
-    testImplementation("com.github.cs124-illinois:gradlegrader:2023.10.8")
+    testImplementation("org.cs124.gradlegrader:lib:2024.3.0")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.robolectric:robolectric:4.11-beta-2")
+    testImplementation("org.robolectric:robolectric:4.11.1")
     testImplementation("androidx.test:core:1.5.0")
     testImplementation("androidx.test.ext:junit:1.1.5")
     testImplementation("androidx.test.ext:truth:1.5.0")
@@ -68,10 +68,10 @@ dependencies {
     testImplementation("androidx.test.espresso:espresso-intents:3.5.1")
     testImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
 
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.1")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.5")
 }
 detekt {
-    toolVersion = "1.23.1"
+    toolVersion = "1.23.5"
     config.from(files("config/detekt/detekt.yml"))
     buildUponDefaultConfig = true
 }

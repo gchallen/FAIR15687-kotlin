@@ -10,6 +10,8 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.net.HttpURLConnection
+import java.time.Duration
+import java.time.Instant
 import java.util.concurrent.CompletableFuture
 
 /*
@@ -22,16 +24,20 @@ import java.util.concurrent.CompletableFuture
 // Private HTTP client for testing
 private val httpClient = OkHttpClient()
 
+internal data class TimedResponse<T>(val response: T, val responseTime: Duration)
+
 /** Test a GET call to the backend API server .*/
-fun <T> String.testServerGet(
+internal fun <T> String.testServerGet(
     responseCode: Int = HttpURLConnection.HTTP_OK,
     responseClass: Class<*>? = JsonNode::class.java,
-): T? {
+): TimedResponse<T?> {
     // Create the request
     val request = Request.Builder().url(CourseableApplication.SERVER_URL + this).build()
 
+    val start = Instant.now()
     // .use ensures the response is cleaned up properly.
     httpClient.newCall(request).execute().use { response ->
+        val responseTime = Duration.between(start, Instant.now())
 
         if (responseCode == 200) {
             // The request should have succeeded
@@ -43,7 +49,7 @@ fun <T> String.testServerGet(
             assertWithMessage("GET request for $this should have failed with code $responseCode")
                 .that(response.code)
                 .isEqualTo(responseCode)
-            return null
+            return TimedResponse(null, responseTime)
         }
 
         // The response body should not be null
@@ -53,16 +59,22 @@ fun <T> String.testServerGet(
         // Deserialize based on type passed to the method
         @Suppress("UNCHECKED_CAST")
         return when (responseClass) {
-            JsonNode::class.java -> objectMapper.readTree(body!!.string()) as T
-            else -> objectMapper.readValue(body!!.string(), responseClass) as T
+            String::class.java -> TimedResponse(body!!.string() as T, responseTime)
+            JsonNode::class.java -> TimedResponse(objectMapper.readTree(body!!.string()) as T, responseTime)
+            else -> TimedResponse(objectMapper.readValue(body!!.string(), responseClass) as T, responseTime)
         }
     }
 }
 
 // testServerGet overrides
-fun <T> String.testServerGet(responseClass: Class<*>) = testServerGet<T>(HttpURLConnection.HTTP_OK, responseClass)
+internal fun <T> String.testServerGet(responseClass: Class<*>) =
+    testServerGet<T>(HttpURLConnection.HTTP_OK, responseClass).response
 
-fun String.testServerGet(responseCode: Int = HttpURLConnection.HTTP_OK) = testServerGet<Nothing>(responseCode)
+internal fun <T> String.testServerGetTimed(responseClass: Class<*>) =
+    testServerGet<T>(HttpURLConnection.HTTP_OK, responseClass)
+
+internal fun String.testServerGet(responseCode: Int = HttpURLConnection.HTTP_OK) =
+    testServerGet<Nothing>(responseCode).response
 
 /** Test a POST to the backend API server. */
 fun <T> String.testServerPost(
@@ -141,4 +153,4 @@ fun <T> testClient(method: (callback: (result: ResultMightThrow<T>) -> Any?) -> 
     return result.value!!
 }
 
-// md5: 1e0bd9685580919882275bc88deb3199 // DO NOT REMOVE THIS LINE
+// md5: 8d66b559154eff63d0089d1d3c31295e // DO NOT REMOVE THIS LINE

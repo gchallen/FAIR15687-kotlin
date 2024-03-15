@@ -10,6 +10,8 @@
 /.idea/misc.xml
 /.idea/checkstyle-idea.xml
 /.idea/deploymentTargetDropDown.xml
+/.idea/migrations.xml
+/.idea/gradle.xml
 .DS_Store
 /build
 /captures
